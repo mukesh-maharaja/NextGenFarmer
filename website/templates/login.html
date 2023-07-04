@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="static\login.css.css">
+
+</head>
+
+
+
+    <body>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        {% for message in messages %}
+        <h3 style="color: rgb(243, 13, 13);"> {{ message }} </h3>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <!-- partial:index.partial.html -->
+        <div class="login-box">
+            <h2>Login</h2>
+            <form action="" method="POST">
+                <div class="user-box">
+                    <input type="text" name="mail" required="">
+                    <label>Mail-id</label>
+                </div>
+                <div class="user-box">
+                    <input type="password" name="password" required="">
+                    <label>Password</label>
+                </div>
+                
+                <a href="#"><input type='submit' value='Login'></a>
+
+                <a href="{{url_for('Signup')}}">create new account?</a>
+            </form>
+        </div>
+        <!-- partial -->
+
+    </body>
+
+    </html>
+    <!-- partial -->
+
+</body>
+
+</html>

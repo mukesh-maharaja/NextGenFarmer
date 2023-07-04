@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact us</title>
+    <link rel="stylesheet" type="text/css" href="static\contact.css">
+</head>
+
+<body>
+    <div>
+        <div id='container'>
+            <div id='hideMe'>
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <h3 style="color: rgb(3, 247, 15);"> {{ message }} </h3>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+            </div>
+        </div>
+    </div>
+    <section class="contact">
+        <div class="content">
+            <h2>Contact Us</h2>
+            <p>The customer himself, the customer will be able to pursue the adipiscing of the company. The exercise will never criticize it, there are praisers for we can push back the debts and who!</p>
+        </div>
+        <div class="container">
+            <div class="contactInfo">
+                <div class="box">
+                    <div class="icon">
+                        <ion-icon name="location-outline"></ion-icon>
+                    </div>
+                    <div class="text">
+                        <h3>Address</h3>
+                        <p>402671 Sugar Camp Road,<br>Erode,Tamilnadu,<br>638004</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <ion-icon name="call-outline"></ion-icon>
+                    </div>
+                    <div class="text">
+                        <h3>Phone</h3>
+                        <p>000-000-0000</p>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="icon">
+                        <ion-icon name="mail-outline"></ion-icon>
+                    </div>
+                    <div class="text">
+                        <h3>Email</h3>
+                        <p>wrub7d78i0e@temporary-mail</p>
+                    </div>
+                </div>
+                <h2 class="txt">Connect with us</h2>
+                <ul class="sci">
+                    <li>
+                        <a href="#">
+                            <ion-icon name="logo-facebook"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="logo-twitter"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="logo-linkedin"></ion-icon>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <ion-icon name="logo-instagram"></ion-icon>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="contactForm">
+                <form action="/critic_message" method="POST">
+                    <h2>Send Message</h2>
+                    <div class="inputBox">
+                        <input type="text" name="full_name" required="required">
+                        <span>Full Name</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="text" name="email" required="required">
+                        <span>Email</span>
+                    </div>
+                    <div class="inputBox">
+                        <textarea name="message" required="required"></textarea>
+                        <span>Type your Message...</span>
+                    </div>
+                    <div class="inputBox">
+                        <input type="submit" value="Send">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

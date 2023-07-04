@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Product Card UI Design</title>
+    <link rel="stylesheet" type="text/css" href="static\card2.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="imgBx">
+            <img src="static/drum.jpg">
+        </div>
+        <div class="details">
+            <form action="{{ url_for('add_to_cart') }}" method="POST">
+                <h3>NEXTGEN FARMER<br><span>DRUM STICK</span></h3>
+                <h4>Product Details</h4>
+                <p>Fresh and delicious drum sticks available for sale! Get your hands on the finest, farm-fresh drum sticks today.</p>
+                <h4>KGS</h4>
+                <ul class="KGS">
+                    <input type="radio" name="number" id="number1" value="2">
+                    <label for="number1">2</label>
+
+                    <input type="radio" name="number" id="number2" value="5">
+                    <label for="number2">5</label>
+
+                    <input type="radio" name="number" id="number3" value="8">
+                    <label for="number3">8</label>
+
+                    <input type="radio" name="number" id="number4" value="10">
+                    <label for="number4">10</label>
+
+                    <input type="radio" name="number" id="number5" value="20">
+                    <label for="number5">20</label>
+
+                </ul>
+                <div class="group">
+                    <h2><sup>₹</sup>25<small>.00</small></h2>
+                    <input type="hidden" name="product_name" value="DRUM STICK">
+                    <input type="hidden" name="product_price" value="25.00">
+                    <input type='submit' value='Addtocart'></a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

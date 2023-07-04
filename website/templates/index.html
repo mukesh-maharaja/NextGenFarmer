@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
+    <link rel="stylesheet" href="static\style.css" />
+    <title>Home Page</title>
+</head>
+
+<body>
+
+    <div class="menu-bar">
+        <h1 class="logo">NEXTGEN<span>FARMER</span></h1>
+        <div class="search">
+            <form action="/search" method="get">
+                <input type="text" placeholder="Search for products..." name="query" required>
+            </form>
+        </div>
+        <div class=" hero "> &nbsp;
+        </div>
+
+        <h4>
+            <div>
+                <div id='container'>
+                    <div id='hideMe'>
+                        {% with messages = get_flashed_messages() %}
+                        {% if messages %}
+                        {% for message in messages %}
+                        <h3 style="color: rgb(3, 247, 15);"> {{ message }} </h3>
+                        {% endfor %}
+                        {% endif %}
+                        {% endwith %}
+                    </div>
+                </div>
+            </div>
+
+
+        </h4>
+        <ul>
+
+            {% if session['loggedin'] == True %}
+
+            <li>
+                <a href="{{url_for('sell')}}">SELL</a>
+            </li>
+
+            <li>
+                <a href="{{url_for('contact')}}">Contact us</a>
+            </li>
+
+            <li><a href="{{url_for('ourteam')}}">Our team</a>
+
+            </li>
+            <li>
+                <a href="{{url_for('view_cart')}}">Cart</a>
+            </li>
+            <li>
+                <a href="{{url_for('logout')}}">Log Out</a>
+            </li>
+            {% else %}
+            <li>
+                <a href="{{url_for('contact')}}">Contact us</a>
+            </li>
+
+            <li><a href="{{url_for('ourteam')}}">Our team</a>
+
+            </li>
+            <li>
+                <a href="{{url_for('login')}}">Log-in</a>
+            </li>
+            <!--<li>
+                <a href="{{url_for('Signup')}}">Sign up</a>
+            </li> -->
+
+            {% endif %}
+            
+
+    </div>
+
+
+</body>
+<section>
+    <div class=" section ">
+        <div class="section1 ">
+            <div class="img-slider ">
+                <img src="static\vege2.jpg " alt=" " class="img " width="100%">
+                <img src="static\vege.jpg.jpg " alt=" " class="img " width="1080px">
+                <img src="static\vege3.jpg " alt=" " class="img " width="1080px">
+                <img src="static\vege4.jpg " alt=" " class="img " width="1080px">
+                <img src="static\vege5.jpg " alt=" " class="img " width="1080px">
+                <img src="static\vege.jpg.jpg " alt=" " class="img " width="1080px">
+                <img src="static\vege2.jpg " alt=" " class="img " width="1080px">
+            </div>
+            <div id="section2 " class="section2 ">
+                <div class="container ">
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\pomato.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Tomato</div>
+                        <div class="price ">RS.25</div>
+                        <div class="btn"><a href="card.html">BUY </a></div>
+                    </div>
+                    <div class=" items ">
+                        <div class="img img2 "><img src="static\brinjal.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Brinjal</div>
+                        <div class="price ">RS.25</div>
+                        <div class="btn"><a href="card1.html">BUY </a></div>
+                    </div>
+                    <div class="items ">
+                        <div class="img img3 "><img src="static\onion.jpg" alt=" "></div>
+                        <div class="name ">Onion</div>
+                        <div class="price ">RS.35</div>
+                        <div class="btn"><a href="card3.html">BUY </a></div>
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img
+                                src=" https://media.gettyimages.com/id/183370209/photo/green-beans.jpg?s=612x612&w=0&k=20&c=LH59zucmZTJoVYo_cCk5TsXLzwLVYtZWwqDIwMnvYgA="
+                                alt=" "></div>
+                        <div class="name ">Village Beans</div>
+                        <div class="price ">RS.15</div>
+                        <div class="btn"><a href="card4.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\po.jpg" alt=" "></div>
+                        <div class="name ">Potato</div>
+                        <div class="price ">RS.25</div>
+                        <div class="btn"><a href="card5.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\red.jpeg " alt=" "></div>
+                        <div class="name ">REd chilly</div>
+                        <div class="price ">RS.20</div>
+                        <div class="btn"><a href="card6.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\mint leaves.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Mint leaves</div>
+                        <div class="price ">RS.15</div>
+                        <div class="btn"><a href="card7.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\gettyimages-1266659631-612x612.jpg " alt=" "></div>
+                        <div class="name ">Green Palntain</div>
+                        <div class="price ">RS.10</div>
+                        <div class="btn"><a href="card8.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\drum.jpg" alt=" "></div>
+                        <div class="name ">Drumstick</div>
+                        <div class="price ">RS.15</div>
+                        <div class="btn"><a href="card9.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 ">
+                            <img src="static\cauliflower.jpg.jpeg ">
+                        </div>
+
+                        <div class="name ">Cauil flower</div>
+                        <div class="price ">RS.20</div>
+                        <div class="btn"><a href="card10.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 ">
+                            <img src="static\beetroot.jpg ">
+                        </div>
+                        <div class="name ">Beetroot</div>
+                        <div class="price ">RS.30</div>
+                        <div class="btn"><a href="card11.html">BUY </a></div>
+
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\mush.jpg " alt=" "></div>
+                        <div class="name ">Mushroom</div>
+                        <div class="price ">RS.40</div>
+                        <div class="btn"><a href="card12.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\ladies finger.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Ladies finger</div>
+                        <div class="price ">RS.20</div>
+                        <div class="btn"><a href="card13.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\green chilli.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Green chilly</div>
+                        <div class="price ">RS.20
+                        </div>
+                        <div class="btn"><a href="card14.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\coconut.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Coconut</div>
+                        <div class="price ">RS.20</div>
+                        <div class="btn"><a href="card15.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\carrot.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Carrot and Beans</div>
+                        <div class="price ">RS.30</div>
+                        <div class="btn"><a href="card16.html">BUY </a></div>
+
+                    </div>
+                    <div class="items ">
+                        <div class="img img1 "><img src="static\bitter gourd.jpg.jpeg " alt=" "></div>
+                        <div class="name ">Bitter gourd</div>
+                        <div class="price ">RS.20
+                            <div class="btn"><a href="card17.html">BUY </a></div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+</section>
+<footer>
+    <div id="footer " class="footer0 ">
+        <h1>FARMER SHOP</h1>
+    </div>
+    <div class="footer1 ">
+        Connect with us at
+        <div class="social-media ">
+            <a href="# ">
+                <ion-icon name="logo-facebook "></ion-icon>
+            </a>
+            <a href="# ">
+                <ion-icon name="logo-linkedin "></ion-icon>
+            </a>
+            <a href="# ">
+                <ion-icon name="logo-youtube "></ion-icon>
+            </a>
+            <a href="# ">
+                <ion-icon name="logo-instagram "></ion-icon>
+            </a>
+            <a href="# ">
+                <ion-icon name="logo-twitter "></ion-icon>
+            </a>
+        </div>
+    </div>
+    <div class="footer2 ">
+        <div class="product ">
+            <div class="heading ">Products</div>
+            <div class="div ">Sell your Products</div>
+            <div class="div ">Advertise</div>
+            <div class="div ">Pricing</div>
+            <div class="div ">Product Buisness</div>
+
+        </div>
+        <div class="services ">
+            <div class="heading ">Services</div>
+            <div class="div ">Return</div>
+            <div class="div ">Cash Back</div>
+            <div class="div ">Affiliate Marketing</div>
+            <div class="div ">Others</div>
+        </div>
+        <div class="Company ">
+            <div class="heading ">Company</div>
+            <div class="div ">Complaint</div>
+            <div class="div ">Careers</div>
+            <div class="div ">Affiliate Marketing</div>
+            <div class="div ">Support</div>
+        </div>
+        <div class="Get Help ">
+            <div class="heading ">Get Help</div>
+            <div class="div ">Help Center</div>
+            <div class="div ">Privacy Policy</div>
+            <div class="div ">Terms</div>
+            <div class="div ">Login</div>
+            <html>
+
+            <head>
+
+            </head>
+
+
+
+
+            <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js "></script>
+
+            </body>
+
+            </html>

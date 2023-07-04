@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Product Selling Webpage</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='sell.css') }}">
+</head>
+
+<body>
+	<div class="container">
+		<h1>Sell Your Product</h1>
+		<form action="{{ url_for('add_product') }}" method="POST">
+			<label for="name">Name:</label>
+			<input type="text" name="name" id="name" required="">
+			<label for="price">Price:</label>
+			<input type="number" name="price" id="price" required="">
+			<button type="submit">Add Product</button>
+		</form>
+		{% for product in products %}
+		<div>
+			<span>{{ product.name }} - {{ product.price }}</span>
+			<form method="post" action="{{ url_for('add_product') }}">
+				<input type="hidden" name="edit_id" value="{{ product.id }}" required="">
+				<input type="text" name="name" value="{{ product.name }}" required="">
+				<input type="text" name="price" value="{{ product.price }}" required="">
+				<input type="submit" value="Edit">
+			</form>
+			<form class="product-form" method="post" action="/delete_product">
+				<input type="hidden" name="product_id" value="{{ product.id }}" required="">
+				<input type="submit" value="Delete">
+			  </form>
+		</div>
+		{% endfor %}
+
+		<hr>
+		<table>
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Price</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for product in products %}
+				<tr>
+					<td>{{ product.name }}</td>
+					<td>{{ product.price }}</td>
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cart.css') }}">
+</head>
+<body>
+    <h1>My Cart</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Product NAME</th>
+                <th>Product PRICE</th>
+                <th>Product Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cart_item in cart_items %}
+            <tr>
+                <td>{{ cart_item.product_name }}</td>
+                <td>{{ cart_item.product_price }}</td>
+                <td>{{ cart_item.product_quantity }}</td>
+                <td>
+                    <form action="{{ url_for('remove_from_cart', cart_item_id=cart_item.product_id) }}" method="POST">
+                        <input type="submit" value="Remove">
+                    </form>
+                </td>
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="{{ url_for('process_payment') }}" method="POST">
+        <input type="number" name="amount" placeholder="Enter Amount">
+        <input type="text" name="email" placeholder="Enter your email">
+    
+        <!-- Stripe payment form fields -->
+        <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="pk_test_51NQ6NjSGvZqUy8UEPIimkCsszeKmKapEjpUgCLLiRsY9C99WRjyWdnnDku5bzdWUo8JyIduF3o2kLcuuWlYECMMk00HqKfT61O"
+                data-amount="amount"
+                data-name="Payment"
+                data-description="Payment"
+                data-email="email"
+                data-locale="auto"></script>
+    </form>
+    
+</body>
+</html>
