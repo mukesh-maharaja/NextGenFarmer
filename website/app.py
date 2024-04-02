@@ -39,6 +39,7 @@ def login():
 			cursor.execute('USE `{}`'.format(user_name))
 			cursor.execute('CREATE TABLE IF NOT EXISTS products (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), price DECIMAL(10, 2))')# for selling page
 			cursor.execute('CREATE TABLE IF NOT EXISTS cart (product_id INT AUTO_INCREMENT PRIMARY KEY, product_name VARCHAR(255), product_price DECIMAL(10, 2), product_quantity varchar(255))')# for addtocart page
+			cursor.execute('CREATE TABLE IF NOT EXISTS critics (full_name varchar(200),email varchar(200),message varchar(500))')# for critics page
 			if account:
 				session['loggedin'] = True
 				session['mail_id'] = account['mail_id']  # database la irukrathu
@@ -208,9 +209,11 @@ def submit_message():
 	email = request.form.get('email')
 	message = request.form.get('message')	
 	# Perform database insertion
-	cursor = mysql.connection.cursor()
+	username = session['user_name']
+	cur = mysql.connection.cursor()
+	cur.execute('USE `{}`'.format(username))  # use the user's database
 	insert_query = "INSERT INTO critics (full_name, email, message) VALUES (%s, %s, %s)"
-	cursor.execute(insert_query, (full_name, email, message))
+	cur.execute(insert_query, (full_name, email, message))
 	mysql.connection.commit()
 	flash('Message sent successfully')
 	return render_template('contact.html')
@@ -329,4 +332,4 @@ def payment_success():
 
 if (__name__ == '__main__'):
     app.secret_key = "abc123"
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0')

@@ -12,14 +12,14 @@
 <body>
 
     <div class="menu-bar">
-        <h1 class="logo">NEXTGEN<span>FARMER</span></h1>
-        <div class="search">
+        <a href="{{url_for('index')}}" class="no-underline"><h1 class="logo">NEXTGEN<span>FARMER</span></h1></a>
+        <!--<div class="search">
             <form action="/search" method="get">
                 <input type="text" placeholder="Search for products..." name="query" required>
             </form>
         </div>
         <div class=" hero "> &nbsp;
-        </div>
+        </div><-->
 
         <h4>
             <div>
@@ -60,9 +60,6 @@
                 <a href="{{url_for('logout')}}">Log Out</a>
             </li>
             {% else %}
-            <li>
-                <a href="{{url_for('contact')}}">Contact us</a>
-            </li>
 
             <li><a href="{{url_for('ourteam')}}">Our team</a>
 
